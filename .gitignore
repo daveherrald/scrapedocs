@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+output/
+venv/
+.DS_Store
+.env
+scrapedocs_*.md
+scrapedocs_*_images/
