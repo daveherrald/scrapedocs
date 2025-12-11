@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Copyright 2025 Dave Herrald
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -218,6 +219,8 @@ if __name__ == "__main__":
     parser.add_argument("--output-dir", default=OUTPUT_DIR, help="Output directory")
     parser.add_argument("--output", default=OUTPUT_FILE, help="Output Markdown filename")
     parser.add_argument("--images-dir", default=IMAGES_DIR, help="Images subdirectory name")
+    parser.add_argument("--run-name", help="Custom name for the output subdirectory (overrides timestamp)")
+    parser.add_argument("--append-to-timestamp", action="store_true", help="Append run-name to timestamp instead of replacing it")
     parser.add_argument("--timeout", type=int, default=TIMEOUT, help="Request timeout in seconds")
     parser.add_argument("--delay", type=float, default=DELAY, help="Delay between requests in seconds")
     
@@ -225,7 +228,16 @@ if __name__ == "__main__":
     
     BASE_URL = args.url
     CONTENT_SELECTOR = args.selector
-    OUTPUT_DIR = os.path.join(args.output_dir, timestamp)
+    
+    if args.run_name:
+        if args.append_to_timestamp:
+            subdir_name = f"{timestamp}_{args.run_name}"
+        else:
+            subdir_name = args.run_name
+    else:
+        subdir_name = timestamp
+
+    OUTPUT_DIR = os.path.join(args.output_dir, subdir_name)
     OUTPUT_FILE = args.output
     IMAGES_DIR = args.images_dir
     TIMEOUT = args.timeout

@@ -11,8 +11,20 @@ A Python script to scrape documentation sites into Markdown.
 
 2. Run the script:
    ```bash
-   python scrapedocs.py --url "https://docs.example.com"
+   python3 scrapedocs.py --url "https://docs.example.com"
    ```
+
+### Custom Output Directory
+
+You can specify a custom name for the run directory:
+
+```bash
+# Creates output/my-custom-name/
+python3 scrapedocs.py --run-name "my-custom-name"
+
+# Creates output/YYYYMMDD_HHMMSS_my-custom-name/
+python3 scrapedocs.py --run-name "my-custom-name" --append-to-timestamp
+```
 
 ## Output
 
