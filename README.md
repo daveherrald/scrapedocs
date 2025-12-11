@@ -16,4 +16,4 @@ A Python script to scrape documentation sites into Markdown.
 
 ## Output
 
-Output files (Markdown and images) are saved to the `output/` directory by default.
+Output files (Markdown and images) are saved to a timestamped subdirectory within the `output/` directory (e.g., `output/20251211_231614/`).

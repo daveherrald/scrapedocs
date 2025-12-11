@@ -225,7 +225,7 @@ if __name__ == "__main__":
     
     BASE_URL = args.url
     CONTENT_SELECTOR = args.selector
-    OUTPUT_DIR = args.output_dir
+    OUTPUT_DIR = os.path.join(args.output_dir, timestamp)
     OUTPUT_FILE = args.output
     IMAGES_DIR = args.images_dir
     TIMEOUT = args.timeout
